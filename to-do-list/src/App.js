@@ -1,5 +1,6 @@
 import "./App.css";
 import React from "react";
+import InputTask from "./InputTask";
 
 class App extends React.Component {
   render() {
@@ -10,6 +11,7 @@ class App extends React.Component {
           <h1>TO-DO LIST</h1>
         </header>
         <main className="content">
+          <InputTask />
           <div className="grid">
             <div className="active">
               <h1>Active</h1>
@@ -28,7 +30,7 @@ class App extends React.Component {
   You can create functional components as well
   
   function App() {
-    
+
   }
   
 */
