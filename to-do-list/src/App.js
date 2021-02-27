@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  render() {
+    // Any elements that need to be returned must be in a wrapper element like a <div> </div>
+    return (
+      <div className="app">
+        <header className="header">
+          <h1>TO-DO LIST</h1>
+        </header>
+        <main className="content">
+          <div className="grid">
+            <div className="active">
+              <h1>Active</h1>
+            </div>
+            <div className="completed">
+              <h1>Completed</h1>
+            </div>
+          </div>
+        </main>
+      </div>
+    );
+  }
 }
+
+/*
+  You can create functional components as well
+  
+  function App() {
+    
+  }
+  
+*/
 
 export default App;
