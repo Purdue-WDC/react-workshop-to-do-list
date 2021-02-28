@@ -1,4 +1,11 @@
+/**
+ * @author Shayne Marques - Purdue Web Development Club 2021 <marques.shayne24@gmail.com>
+ * @summary To-Do List app used to add, complete and delete tasks
+ */
+
 import React from "react";
+import List from "./List";
+import AddTask from "./AddTask";
 import "./App.css";
 
 class App extends React.Component {
@@ -13,6 +20,8 @@ class App extends React.Component {
     this.toggleCheckboxChange = this.toggleCheckboxChange.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
   }
+
+  // Used to change the state of the checkbox
   toggleCheckboxChange(event) {
     const listCopy = this.state.list;
     const foundIndex = this.state.list.findIndex(
@@ -27,12 +36,16 @@ class App extends React.Component {
       value: state.value,
     }));
   }
+
+  // Used to handle a change in the input field
   handleTextChange(event) {
     this.setState((state) => ({
       list: [...state.list],
       value: event.target.value,
     }));
   }
+
+  // Used to delete a task from the list
   handleDelete(event) {
     const listCopy = this.state.list;
     const foundIndex = this.state.list.findIndex(
@@ -45,6 +58,8 @@ class App extends React.Component {
       value: state.value,
     }));
   }
+
+  // Used to add a task to the list
   handleAddButton(event) {
     if (this.state.value !== "") {
       this.setState((state) => ({
@@ -54,6 +69,8 @@ class App extends React.Component {
     }
     document.getElementById("task").value = "";
   }
+
+  // Render method for React
   render() {
     return (
       <div className="app">
@@ -61,79 +78,15 @@ class App extends React.Component {
           <h1>TO-DO LIST</h1>
         </header>
         <main className="content">
-          <div className="add-task">
-            <input
-              name="task-input"
-              type="text"
-              id="task"
-              className="text-input"
-              placeholder="Enter your next task..."
-              onChange={this.handleTextChange}
-            />
-            <button onClick={this.handleAddButton} className="add-button">
-              Add task
-            </button>
-          </div>
-          <div className="grid">
-            <div className="active">
-              <h1>Active</h1>
-              <ul>
-                {this.state.list.map((obj) => {
-                  if (!obj.complete) {
-                    return (
-                      <li>
-                        <input
-                          type="checkbox"
-                          name={obj.name}
-                          checked={obj.complete}
-                          onChange={this.toggleCheckboxChange}
-                        />
-                        <label htmlFor={obj.name}>{obj.name}</label>
-                        <button
-                          id={obj.name}
-                          onClick={this.handleDelete}
-                          className="del-button"
-                        >
-                          Del
-                        </button>
-                      </li>
-                    );
-                  } else {
-                    return null;
-                  }
-                })}
-              </ul>
-            </div>
-            <div className="completed">
-              <h1>Completed</h1>
-              <ul>
-                {this.state.list.map((obj) => {
-                  if (obj.complete) {
-                    return (
-                      <li>
-                        <input
-                          type="checkbox"
-                          name={obj.name}
-                          checked={obj.complete}
-                          onChange={this.toggleCheckboxChange}
-                        />
-                        <label htmlFor={obj.name}>{obj.name}</label>
-                        <button
-                          id={obj.name}
-                          onClick={this.handleDelete}
-                          className="del-button"
-                        >
-                          Del
-                        </button>
-                      </li>
-                    );
-                  } else {
-                    return null;
-                  }
-                })}
-              </ul>
-            </div>
-          </div>
+          <AddTask
+            handleTextChange={this.handleTextChange}
+            handleAddButton={this.handleAddButton}
+          />
+          <List
+            taskList={this.state.list}
+            toggleCheckboxChange={this.toggleCheckboxChange}
+            handleDelete={this.handleDelete}
+          />
         </main>
       </div>
     );
