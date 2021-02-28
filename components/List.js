@@ -5,7 +5,7 @@
 
 import React from "react";
 import ListItem from "./ListItem";
-import "./App.css";
+import "../src/App.css";
 
 class List extends React.Component {
   render() {

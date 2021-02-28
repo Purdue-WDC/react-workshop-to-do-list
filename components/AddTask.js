@@ -4,7 +4,7 @@
  */
 
 import React from "react";
-import "./App.css";
+import "../src/App.css";
 
 class AddTask extends React.Component {
   render() {
