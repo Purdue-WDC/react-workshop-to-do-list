@@ -1,5 +1,4 @@
 import React from "react";
-
 import "./App.css";
 
 class App extends React.Component {
@@ -16,18 +15,13 @@ class App extends React.Component {
   }
   toggleCheckboxChange(event) {
     const listCopy = this.state.list;
-    console.log(listCopy);
     const foundIndex = this.state.list.findIndex(
       (item) => item.name === event.target.name
     );
-    console.log(foundIndex);
-    const isChecked = this.state.list[foundIndex].complete;
-    console.log(isChecked);
     listCopy.splice(foundIndex, 1, {
       name: this.state.list[foundIndex].name,
       complete: !this.state.list[foundIndex].complete,
     });
-    console.log(isChecked);
     this.setState((state) => ({
       list: [...listCopy],
       value: state.value,
@@ -42,9 +36,10 @@ class App extends React.Component {
   handleDelete(event) {
     const listCopy = this.state.list;
     const foundIndex = this.state.list.findIndex(
-      (item) => item.name === event.target.name
+      (item) => item.name === event.target.id
     );
     listCopy.splice(foundIndex, 1);
+    console.log(listCopy);
     this.setState((state) => ({
       list: [...listCopy],
       value: state.value,
@@ -60,10 +55,8 @@ class App extends React.Component {
     document.getElementById("task").value = "";
   }
   render() {
-    // Any elements that need to be returned must be in a wrapper element like a <div> </div>
     return (
       <div className="app">
-        {/* Main heading for the webpage */}
         <header className="header">
           <h1>TO-DO LIST</h1>
         </header>
@@ -76,7 +69,7 @@ class App extends React.Component {
               className="text-input"
               placeholder="Enter your next task..."
               onChange={this.handleTextChange}
-            ></input>
+            />
             <button onClick={this.handleAddButton} className="add-button">
               Add task
             </button>
@@ -146,5 +139,4 @@ class App extends React.Component {
     );
   }
 }
-
 export default App;
