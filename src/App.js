@@ -4,9 +4,9 @@
  */
 
 import React from "react";
-import List from "./List";
-import AddTask from "./AddTask";
-import MainHeader from "./MainHeader";
+import List from "./components/List";
+import AddTask from "./components/AddTask";
+import MainHeader from "./components/MainHeader";
 import "./App.css";
 
 class App extends React.Component {

@@ -4,7 +4,7 @@
  */
 
 import React from "react";
-import "../src/App.css";
+import "../App.css";
 
 class MainHeader extends React.Component {
   render() {
