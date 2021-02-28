@@ -1,3 +1,7 @@
+# TO-DO LIST
+
+This workshop project allows the user the add, complete and delete tasks in a simple manner
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
