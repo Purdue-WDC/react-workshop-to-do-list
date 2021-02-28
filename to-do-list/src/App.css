@@ -45,11 +45,6 @@ li {
   grid-template-columns: 50% 50%;
 }
 
-.active,
-.completed {
-  border: solid;
-}
-
 .add-task {
   padding: 30px;
 }
@@ -60,6 +55,12 @@ li {
   width: 250px;
   height: 30px;
   padding-left: 10px;
+}
+
+.text-input::placeholder {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
 }
 
 .text-input:focus {
@@ -73,9 +74,11 @@ li {
   border-radius: 0.15em;
   box-sizing: border-box;
   text-decoration: none;
-  font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   font-weight: 400;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
   color: #ffffff;
   background-color: #3369ff;
   box-shadow: inset 0 -0.6em 0 -0.35em rgba(0, 0, 0, 0.17);
@@ -84,10 +87,31 @@ li {
   position: relative;
 }
 
-.add-button:active {
+.del-button {
+  display: inline-block;
+  margin: 10px;
+  border-radius: 0.15em;
+  box-sizing: border-box;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  color: #ffffff;
+  background-color: #ca0101;
+  box-shadow: inset 0 -0.6em 0 -0.35em rgba(0, 0, 0, 0.17);
+  border: none;
+  text-align: center;
+  position: relative;
+}
+
+.add-button:active,
+.del-button:active {
   top: 0.1em;
 }
 
-.add-button:focus {
+.add-button:focus,
+.del-button:focus {
   outline: none;
 }
