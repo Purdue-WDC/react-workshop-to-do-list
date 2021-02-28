@@ -6,6 +6,7 @@
 import React from "react";
 import List from "./List";
 import AddTask from "./AddTask";
+import MainHeader from "./MainHeader";
 import "./App.css";
 
 class App extends React.Component {
@@ -75,7 +76,7 @@ class App extends React.Component {
     return (
       <div className="app">
         <header className="header">
-          <h1>TO-DO LIST</h1>
+          <MainHeader text="TO-DO LIST" />
         </header>
         <main className="content">
           <AddTask
