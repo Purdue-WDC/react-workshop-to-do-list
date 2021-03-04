@@ -1,6 +1,11 @@
 # TO-DO LIST
 
-This workshop project allows the user the add, complete and delete tasks in a simple manner
+This workshop project allows the user the add, complete and delete tasks in a simple manner.
+
+This was made for Workshop purposes, with the Purdue Web Dev Club React workshop happening on March 3rd, 2021.
+
+You can find the recording [here](https://purdue-edu.zoom.us/rec/share/gJG9JcWp9apQLmwzLzLH3fOQ90WSBV6SLBigfNV9OpVNfENnl7oMCd3VQvzHnaxw.YNSUNbzn2BumjTX7),
+and the slides [here](https://github.com/Purdue-WDC/react-workshop-to-do-list/blob/main/React-Workshop.pptx)
 
 # Getting Started with Create React App
 
