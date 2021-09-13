@@ -16,7 +16,6 @@ class AddTask extends React.Component {
           id="task"
           className="text-input"
           placeholder="Enter your next task..."
-          onChange={this.props.handleTextChange}
           autoComplete="off"
         />
         <button onClick={this.props.handleAddButton} className="add-button">

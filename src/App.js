@@ -14,10 +14,8 @@ class App extends React.Component {
     super(props);
     this.state = {
       list: [],
-      value: "",
     };
     this.handleAddButton = this.handleAddButton.bind(this);
-    this.handleTextChange = this.handleTextChange.bind(this);
     this.toggleCheckboxChange = this.toggleCheckboxChange.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
   }
@@ -34,15 +32,6 @@ class App extends React.Component {
     });
     this.setState((state) => ({
       list: [...listCopy],
-      value: state.value,
-    }));
-  }
-
-  // Used to handle a change in the input field
-  handleTextChange(event) {
-    this.setState((state) => ({
-      list: [...state.list],
-      value: event.target.value,
     }));
   }
 
@@ -53,19 +42,18 @@ class App extends React.Component {
       (item) => item.name === event.target.id
     );
     listCopy.splice(foundIndex, 1);
-    console.log(listCopy);
     this.setState((state) => ({
       list: [...listCopy],
-      value: state.value,
     }));
+    console.log(listCopy);
   }
 
   // Used to add a task to the list
   handleAddButton(event) {
-    if (this.state.value !== "") {
+    const name = document.getElementById("task").value;
+    if (name !== "") {
       this.setState((state) => ({
-        list: [...state.list, { name: state.value, complete: false }],
-        value: "",
+        list: [...state.list, { name: name, complete: false }],
       }));
     }
     document.getElementById("task").value = "";
@@ -79,10 +67,7 @@ class App extends React.Component {
           <MainHeader text="TO-DO LIST" />
         </header>
         <main className="content">
-          <AddTask
-            handleTextChange={this.handleTextChange}
-            handleAddButton={this.handleAddButton}
-          />
+          <AddTask handleAddButton={this.handleAddButton} />
           <List
             taskList={this.state.list}
             toggleCheckboxChange={this.toggleCheckboxChange}
